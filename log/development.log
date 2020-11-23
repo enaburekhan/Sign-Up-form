@@ -3681,3 +3681,39 @@ Processing by UsersController#new as HTML
 Completed 200 OK in 12ms (Views: 10.3ms | ActiveRecord: 0.0ms | Allocations: 4497)
 
 
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users/new" for ::1 at 2020-11-23 21:13:55 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 7.7ms | Allocations: 2972)
+  Rendered users/new.html.erb within layouts/application (Duration: 10.0ms | Allocations: 3369)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_messages.html.erb (Duration: 0.8ms | Allocations: 139)
+Completed 200 OK in 60ms (Views: 38.2ms | ActiveRecord: 2.4ms | Allocations: 15610)
+
+
+Started POST "/users" for ::1 at 2020-11-23 21:13:59 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"woJR+LeKA0LeckawX8qgnFlnzFxMgiytPCPTv7468v2NALtOCRG7QwhYAgIwM3PV/4khxxSEhGGnLF1E6ejgwA==", "user"=>{"user_name"=>"", "email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:13:in `create'
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 11.0ms | Allocations: 1845)
+  Rendered users/new.html.erb within layouts/application (Duration: 11.7ms | Allocations: 1906)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 17)
+Completed 200 OK in 57ms (Views: 29.1ms | ActiveRecord: 0.8ms | Allocations: 12256)
+
+
